@@ -33,66 +33,55 @@ class _SplashScreenState extends State<SplashScreen> {
           builder: (context, constraints) {
             final isDesktop = constraints.maxWidth >= 600;
 
-            final mascotSize = isDesktop ? 360.0 : 270.0;
-            final nameWidth = isDesktop ? 420.0 : 320.0;
-            final nameHeight = isDesktop ? 125.0 : 100.0;
+            final mascotSize = isDesktop ? 240.0 : 200.0;
+            final nameWidth = isDesktop ? 300.0 : 250.0;
+            final nameHeight = isDesktop ? 90.0 : 75.0;
 
-            return SingleChildScrollView(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: constraints.maxHeight,
-                ),
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 32,
+            return Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      'assets/images/logo.png',
+                      width: mascotSize,
+                      height: mascotSize,
+                      fit: BoxFit.contain,
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/logo.png',
-                          width: mascotSize,
-                          height: mascotSize,
-                          fit: BoxFit.contain,
-                        ),
 
-                        const SizedBox(height: 4),
-
-                        Image.asset(
-                          'assets/images/nama.png',
-                          width: nameWidth,
-                          height: nameHeight,
-                          fit: BoxFit.contain,
-                        ),
-
-                        const SizedBox(height: 12),
-
-                        Text(
-                          'A Bowl Full of Happiness',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: isDesktop ? 16 : 14,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.textSecondary,
-                            letterSpacing: 0.7,
-                          ),
-                        ),
-
-                        const SizedBox(height: 36),
-
-                        const SizedBox(
-                          width: 24,
-                          height: 24,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2.5,
-                            color: AppColors.primary,
-                          ),
-                        ),
-                      ],
+                    Transform.translate(
+                      offset: const Offset(0, -60),
+                      child: Image.asset(
+                        'assets/images/nama.png',
+                        width: nameWidth,
+                        height: nameHeight,
+                        fit: BoxFit.contain,
+                      ),
                     ),
-                  ),
+
+                    Transform.translate(
+                      offset: const Offset(0, -48),
+                      child: Text(
+                        'A Bowl Full of Happiness',
+                        style: TextStyle(
+                          fontSize: isDesktop ? 15 : 13,
+                          color: AppColors.textSecondary,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 24),
+
+                    const SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2.5,
+                        color: AppColors.primary,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             );

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -7,14 +8,16 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-
       scaffoldBackgroundColor: AppColors.background,
 
       colorScheme: const ColorScheme.light(
-        primary: AppColors.spicyEmber,
-        secondary: AppColors.yolkBlaze,
+        primary: AppColors.primary,
+        onPrimary: Colors.white,
+        secondary: AppColors.accent,
         surface: AppColors.surface,
+        onSurface: AppColors.textPrimary,
         error: AppColors.error,
+        outline: AppColors.border,
       ),
 
       textTheme: GoogleFonts.nunitoSansTextTheme().apply(
@@ -27,6 +30,7 @@ class AppTheme {
         foregroundColor: AppColors.textPrimary,
         elevation: 0,
         centerTitle: false,
+        surfaceTintColor: Colors.transparent,
         titleTextStyle: GoogleFonts.nunitoSans(
           fontSize: 22,
           fontWeight: FontWeight.w800,
@@ -36,7 +40,7 @@ class AppTheme {
 
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.spicyEmber,
+          backgroundColor: AppColors.primary,
           foregroundColor: Colors.white,
           elevation: 0,
           padding: const EdgeInsets.symmetric(
@@ -75,7 +79,7 @@ class AppTheme {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(
-            color: AppColors.spicyEmber,
+            color: AppColors.primary,
             width: 1.5,
           ),
         ),

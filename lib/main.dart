@@ -1,10 +1,8 @@
+
 import 'package:flutter/material.dart';
 
-import 'config/app_theme.dart';
-
-void main() {
-  runApp(const MenkoApp());
-}
+import 'Config/app_theme.dart';
+import 'splash/splashScreen.dart';
 
 class MenkoApp extends StatelessWidget {
   const MenkoApp({super.key});
@@ -15,11 +13,14 @@ class MenkoApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'MENKO Noodle House',
       theme: AppTheme.lightTheme,
-      home: const Scaffold(
-        body: Center(
-          child: Text('MENKO Noodle House'),
-        ),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+      },
     );
   }
+}
+
+void main() {
+  runApp(const MenkoApp());
 }
